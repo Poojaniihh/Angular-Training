@@ -1,0 +1,15 @@
+<div class="all px-3 py-5">
+    <div class="card" style="width: auto; height: 700px;">
+    <img [src]="product.image" class="card-img-top" [alt]="product.title">
+    <div class="card-body">
+        <h5 class="card-title">{{ product.title }}</h5>
+        <p class="card-text description">
+        <strong>Description: </strong>{{product.description}}</p>
+        <p class="card-text"><strong>Rating: </strong>{{ product.rating.rate}}</p>
+        <button class="btn btn-secondary w-100 p-3"
+             
+            (click)="addToCart()">
+            Add to cart</button>
+    </div>
+    </div>
+</div>

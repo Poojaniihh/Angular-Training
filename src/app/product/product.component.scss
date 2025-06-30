@@ -1,0 +1,37 @@
+.all {
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin: auto;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.description {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+ 
+
+@media screen and (max-width: 1000px) {
+    .card {
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .card {
+        max-width: 500px;
+    }
+}

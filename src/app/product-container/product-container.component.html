@@ -1,0 +1,13 @@
+<div class="container mt-4">
+    <div class="col-12 col-md-4">
+        <select class="form-select" [(ngModel)]="selectedCategory" (change)="filterByCategory(selectedCategory)">
+            <option value="all">All categories</option>
+            <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+        </select>
+    </div>        
+    <div class="row row-cols-4 g-5">
+        <div class="col" *ngFor="let product of filteredCategory">
+            <app-product [product]="product" (productOutput)="productOutPutEvent($event)"></app-product>
+        </div>
+    </div>
+</div>

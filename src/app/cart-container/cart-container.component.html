@@ -1,0 +1,4 @@
+<div class="container mt-4">
+     <app-cart [cartItems]="this.cartService.getCartItems()" (removeItem)="onRemoveItemOutput($event)"
+     [totalItems]="this.cartService.totalItems()"></app-cart>
+</div>
