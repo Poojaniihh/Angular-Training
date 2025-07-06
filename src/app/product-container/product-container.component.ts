@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { CartService } from '../services/cart.service';
 import { ProductService } from '../services/product.service';
 import { FormsModule } from '@angular/forms';
+import { wishListService } from '../services/wish-list.service';
 
 @Component({
   selector: 'app-product-container',
@@ -13,8 +14,11 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './product-container.component.scss'
 })
 export class ProductContainerComponent {
+wishListAddEvent($event: Product) {
+this.wishListService.addToWishList($event);
+}
 
-   constructor(public cartService:CartService , private productService:ProductService){}
+   constructor(public cartService:CartService , private productService:ProductService , public wishListService: wishListService){}
   products:Product[] = [];
   categories: string[] = [];
   selectedCategory: string = 'all';
@@ -23,6 +27,7 @@ export class ProductContainerComponent {
 productOutPutEvent(product: Product){
   this.cartService.addToCart(product);
 }
+
 
 filterByCategory(category: string){
   this.selectedCategory = category;
@@ -37,13 +42,21 @@ filterByCategory(category: string){
 ngOnInit(){
   this.productService.getProducts().subscribe({
     next: (data)=>{
-      this.categories = Array.from(new Set(data.map(product => product.category)))
       this.products = data;
     },
     error: (err)=>{
       alert("Request Failed" + err);
     }
   })
+
+   this.productService.getCategories().subscribe({
+    next: (data)=>{
+      this.categories = data
+    },
+    error: (err)=>{
+      alert("Request Failed" + err);
+    }
+  })  
 }
 }
  

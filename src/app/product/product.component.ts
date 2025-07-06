@@ -12,14 +12,21 @@ import { RedHighlightDirective } from '../directives/red-highlight.directive';
   standalone: true
 })
 export class ProductComponent {
-
     @Input() product!: Product;
 
     @Output() productOutput = new EventEmitter<Product>();
 
+    @Output() wishListAdd = new EventEmitter<Product>();
+
     addToCart(){
       this.productOutput.emit(this.product);
     }
+
+    addToWishList() {
+      console.log("longing from wishlist")
+       this.wishListAdd.emit(this.product);
+    }
+
   
 
 }

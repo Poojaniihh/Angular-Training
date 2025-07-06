@@ -7,9 +7,11 @@
         <strong>Description: </strong>{{product.description}}</p>
         <p class="card-text"><strong>Rating: </strong>{{ product.rating.rate}}</p>
         <button class="btn btn-secondary w-100 p-3"
-             
             (click)="addToCart()">
             Add to cart</button>
+         <button class="btn btn-secondary w-100 mt-2"
+            (click)="addToWishList()">
+            Wish List</button>
     </div>
     </div>
 </div>
