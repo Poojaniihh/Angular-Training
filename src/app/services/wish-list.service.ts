@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { Product } from '../modals/product';
+ 
 
 @Injectable({
   providedIn: 'root'
@@ -42,5 +43,7 @@ export class wishListService {
     this.updateTotalItems();
   }
 
-  constructor() { }
+  
+  constructor( ) {}
+
 }

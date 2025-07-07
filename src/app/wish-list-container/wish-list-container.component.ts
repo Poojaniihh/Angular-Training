@@ -13,7 +13,7 @@ export class WishListContainerComponent {
 
   
 onMoveToCart($event: number) {
-throw new Error('Method not implemented.');
+this.wishListService.removeItem($event);
 }
 
   constructor(public wishListService: wishListService){

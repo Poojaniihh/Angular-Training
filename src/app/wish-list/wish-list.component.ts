@@ -8,12 +8,16 @@ import { Product } from '../modals/product';
   styleUrl: './wish-list.component.scss'
 })
 export class WishListComponent {
+   
 
    @Input() wishListItems: Product[] = []
 
    @Input() totalItems: number = 0;
 
    @Output() moveToCart = new EventEmitter<number>();
+   
+  
+   
 
 
    ngOnChanges(){
@@ -25,6 +29,7 @@ export class WishListComponent {
   constructor( ){}
    onMoveToCart(index:number){
     this.moveToCart.emit(index);
+    
    }
 
 }
