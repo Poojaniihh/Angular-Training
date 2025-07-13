@@ -14,22 +14,17 @@ export class WishListComponent {
 
    @Input() totalItems: number = 0;
 
-   @Output() moveToCart = new EventEmitter<number>();
+   @Output() moveToCart = new EventEmitter<{index:number, product:Product}>();
    
-  
-   
-
-
    ngOnChanges(){
 
-    console.log("wishlist ----" )
-    console.log("wishListAdd")
    }
 
   constructor( ){}
-   onMoveToCart(index:number){
-    this.moveToCart.emit(index);
+   onMoveToCart(indexNum:number){
+    this.moveToCart.emit({index:indexNum, product:this.wishListItems[indexNum]});
     
    }
 
+    
 }

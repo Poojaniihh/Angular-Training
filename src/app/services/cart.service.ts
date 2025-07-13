@@ -16,13 +16,7 @@ export class CartService {
 
     //to avoid refference issues, we create a new object
     const productToAdd = {...product};
-
-  
-
     this.cartItems.update(items => [...items, productToAdd ]);
-
-     
-
     this.updateTotalItems();
   }
 

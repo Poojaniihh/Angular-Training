@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { Product } from '../modals/product';
+import { CartService } from './cart.service';
  
 
 @Injectable({
@@ -42,8 +43,16 @@ export class wishListService {
     });
     this.updateTotalItems();
   }
+  moveToCart(index: number) {
+  const item = this.wishListItems()[index];
+  if (item) {
+    this.cartService.addToCart(item); 
+    this.removeItem(index);            
+  }
+}
+
 
   
-  constructor( ) {}
+  constructor(public cartService: CartService ) {}
 
 }
